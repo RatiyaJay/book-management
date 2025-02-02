@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import BookList from "../components/BookList";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <Container className="mt-3">
-      <h2>Book List</h2>
+      <div className="d-flex justify-content-between align-items-center">
+        <Button variant="primary" onClick={() => navigate("/add-book")}>
+          + Add Book
+        </Button>
+      </div>
       <BookList />
     </Container>
   );

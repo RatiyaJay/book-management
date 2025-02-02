@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addBook } from "../features/book/booksSlice";
+import { addBookAsync } from "../features/book/booksSlice";
 import BookForm from "../components/BookForm";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
@@ -9,8 +9,9 @@ const AddBook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (book) => {
-    dispatch(addBook(book));
+  const handleSubmit = async (book) => {
+    await dispatch(addBookAsync(book)); // Send book to backend
+
     navigate("/");
   };
 

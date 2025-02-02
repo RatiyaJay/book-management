@@ -5,7 +5,7 @@ import axios from "axios";
 import { loginSuccess } from "../features/auth/authSlice";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
-import "./Login.css"; // Importing custom CSS
+import "./login.css"; // Importing custom CSS
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://localhost:3001/api/user/login",
+        `${process.env.REACT_APP_API_URL}/api/user/login`,
         formData
       );
       dispatch(loginSuccess(response.data)); // Store user & token in Redux

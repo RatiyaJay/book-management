@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://localhost:3001/api/user/register",
+        `${process.env.REACT_APP_API_URL}/api/user/register`,
         formData
       );
       toast.success(
